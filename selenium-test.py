@@ -1,7 +1,7 @@
 from selenium import webdriver
 import os
 
-URL = "https://google.com"
+URL = "https://glastonbury.seetickets.com/content/extras"
 
 PATH = os.environ.get('CHROMEDRIVER')
 if not PATH:
@@ -9,5 +9,9 @@ if not PATH:
 driver = webdriver.Chrome(PATH)
 
 driver.get(URL)
-print(driver.title)
-driver.quit()
+
+for x in range(50):
+    print(driver.title)
+    driver.refresh()
+
+driver.close()
